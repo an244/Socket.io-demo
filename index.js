@@ -36,8 +36,12 @@ io.on("connection", socket =>{
     //io.sockets.emit("Server-send-data", HelloFromClient+" from Server for " + socket.id);
   
     //server chỉ trả lời với 1 client nào click send thôi, ko gửi cho tất cả client đag kết nối server nữa
-    //Bước 1C1
-    socket.emit("Server-send-data", Hello+" from Server for " + socket.id);
+    //Bước 1C2
+    //socket.emit("Server-send-data", Hello+" from Server for " + socket.id);
+
+    //server chỉ KO trả lời với 1 client nào click send thôi, NHƯNG gửi cho tất cả client đag kết nối server đó
+    //Bước 1C3
+    socket.broadcast.emit("Server-send-data", Hello+" from Server for " + socket.id);
   });
 
 });
