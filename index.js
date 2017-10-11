@@ -24,9 +24,20 @@ io.on("connection", socket =>{
    console.log('dã Thoát: ' + socket.id ); 
   });
 
+  
   //'Client-send-data' phải khớp với 'emit' bên home.ejs
-  socket.on('Client-send-data', (data)=>{
-    console.log(data);
+  socket.on('Client-send-data', (Hello)=>{
+    //Bước 1B
+    console.log(Hello + " from " + socket.id );
+    
+    //server gửi trả lời về cho tất cả clients đag kết nối tới server
+    //"Server-send-data" phải trùng khớp với "on" bên home.ejs
+    //Bước 1C
+    //io.sockets.emit("Server-send-data", HelloFromClient+" from Server for " + socket.id);
+  
+    //server chỉ trả lời với 1 client nào click send thôi, ko gửi cho tất cả client đag kết nối server nữa
+    //Bước 1C1
+    socket.emit("Server-send-data", Hello+" from Server for " + socket.id);
   });
 
 });

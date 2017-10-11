@@ -12,15 +12,23 @@
     const socket = io("http://localhost:3000");
     
     $(document).ready(()=>{
-        //alert('hello JQUERY');
+        
+        //Bước 1A
         $("#mrA").click(()=>{
             //mỗi client sẽ dc server cấp 1 socket riêng để server dễ quản lý
             socket.emit("Client-send-data","Hello");
         });
     });
+
+    //client lắng nghe sự kiện "Server-send-data"
+    //Bước 1D
+    socket.on("Server-send-data",(dataFromServer)=>{
+        $("#noidung").append(dataFromServer+", ");
+    });
     </script>
 </head>
 <body>
     <div id="mrA">Click Send</div>
+    <h2 id="noidung"></h2>
 </body>
 </html>
