@@ -11,12 +11,16 @@
     //gọi điện lên server
     const socket = io("http://localhost:3000");
     
-    $(document).ready(function(){
+    $(document).ready(()=>{
         //alert('hello JQUERY');
+        $("#mrA").click(()=>{
+            //mỗi client sẽ dc server cấp 1 socket riêng để server dễ quản lý
+            socket.emit("Client-send-data","Hello");
+        });
     });
     </script>
 </head>
 <body>
-    <h3>Hello World</h3>
+    <div id="mrA">Click Send</div>
 </body>
 </html>
