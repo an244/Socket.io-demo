@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Socket.IO-demo</title>
+    <script src="jquery.js"></script>
+
+     <!-- để client kết nối với socket.io. Thư viện này có sẵn khi cài socket.io -->
+    <script src="socket.io/socket.io.js"></script>
+
+    <script>
+    //gọi điện lên server
+    const socket = io("http://localhost:3000");
+    
+    $(document).ready(function(){
+        alert('hello JQUERY');
+    });
+    </script>
+</head>
+<body>
+    <h3>Hello World</h3>
+</body>
+</html>
